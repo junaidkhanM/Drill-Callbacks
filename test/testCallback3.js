@@ -9,9 +9,7 @@ fs.readFile('data/cards.json', 'utf8', (err, jsonString) => {
     return;
   }
   const cards = JSON.parse(jsonString);
-  callback(listId, cards, cb);
+  callback(listId, cards)
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
 });
-
-const cb = (err, data) => {
-  err ? console.log(err) : console.log(data);
-};
