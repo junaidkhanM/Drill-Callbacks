@@ -9,9 +9,7 @@ fs.readFile('data/boards.json', 'utf8', (err, jsonString) => {
     return;
   }
   const board = JSON.parse(jsonString);
-  callback(boardId, board, cb);
+  callback(boardId, board)
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
 });
-
-const cb = (err, data) => {
-  err ? console.log(err) : console.log(data);
-};
